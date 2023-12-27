@@ -1,0 +1,43 @@
+@keyframes changeColor {
+  0% {
+    color: #ffa07a;
+  } /* Dark Salmon */
+  25% {
+    color: #ff8c69;
+  } /* Dark Orange */
+  50% {
+    color: #ff6e13;
+  } /* Orange Red */
+  75% {
+    color: #ff6347;
+  } /* Tomato */
+  100% {
+    color: #ff7f50;
+  } /* Coral */
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 120% 0%;
+  }
+}
+
+.colorChange {
+  /* animation: changeColor 2s infinite; */
+  background: linear-gradient(
+    90deg,
+    rgb(249, 115, 22),
+    rgb(249, 115, 22, 0.8),
+    rgb(249, 115, 22, 0.6),
+    rgb(249, 115, 22, 0.4),
+    rgb(249, 115, 22, 0.2),
+    rgb(249, 115, 22)
+  );
+  background-size: 500% 100%;
+  color: transparent;
+  background-clip: text;
+  animation: gradientMove 1.5s ease-in-out infinite alternate-reverse;
+}
