@@ -21,13 +21,14 @@ export type CreateEventParams = {
   event: {
     title: string;
     description: string;
-    location: string;
+    tech: string;
     imageUrl: string;
-    startDateTime: Date;
-    endDateTime: Date;
+    videoUrl: string;
+    createdAt: Date;
+    // endDateTime: Date;
     categoryId: string;
     price: string;
-    isFree: boolean;
+    // isFree: boolean;
     url: string;
   };
   path: string;

@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer {
+  .react-datepicker__day--selected {
+    background-color: #f59e0b !important;
+  }
+  .react-datepicker__header {
+    background-color: #f59e0b !important;
+  }
+  .react-datepicker__current-month {
+    color: #ffffff !important;
+  }
+  .react-datepicker__navigation--next {
+    background-color: #f59e0b !important;
+    color: #f59e0b !important;
+  }
+  .react-datepicker__navigation-icon::before {
+    border-color: #f6e7cd !important;
+    margin-top: 5px !important;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
