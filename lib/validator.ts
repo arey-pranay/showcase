@@ -1,10 +1,15 @@
+// "use server";
 import * as z from "zod";
+import { connectToDatabase } from "./database";
+import { auth } from "@clerk/nextjs";
+import User from "./database/models/user.model";
+import getOrganizer from "./actions/event.action";
 
 export const eventFormSchema = z.object({
   title: z.string().min(3, "Oi! Put at least 3 character na"),
   description: z
     .string()
-    .min(3, "What kinda description it this hn ? At least put 10 characters"),
+    .min(5, "What kinda description it this hn ? At least put 5 characters"),
   createdAt: z.date(),
   imageUrl: z.string(),
   videoUrl: z.string(),
@@ -12,5 +17,4 @@ export const eventFormSchema = z.object({
   price: z.string(),
   url: z.string(),
   categoryId: z.string(),
-  // organizer: z.string(),
 });

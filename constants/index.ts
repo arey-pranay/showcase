@@ -14,6 +14,7 @@ export const headerLinks = [
 ];
 
 export const eventDefaultValues = {
+  username: "",
   title: "",
   description: "",
   // location: "",
@@ -25,6 +26,8 @@ export const eventDefaultValues = {
   categoryId: "",
   price: "",
   // isFree: false,
+  // userId: "",
   url: "",
+  // orgUser: "",
   // organizer: "",
 };

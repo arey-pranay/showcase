@@ -8,9 +8,10 @@ export interface IEvent extends Document {
   imageUrl: string;
   videoUrl?: string;
   tech?: string;
+  // orgUser?: string;
   price?: string;
   url?: string;
   category?: { _id: string; name: string };
-  // organizer?: { _id: string; firstName: string; lastName: string };
-  organizer?: string;
+
+  organizer?: { _id: string; firstName: string; lastName: string };
 }

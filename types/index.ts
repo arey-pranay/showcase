@@ -30,6 +30,7 @@ export type CreateEventParams = {
     price: string;
     // isFree: boolean;
     url: string;
+    // orgUser: string;
   };
   path: string;
 };
@@ -82,17 +83,17 @@ export type Event = {
   title: string;
   description: string;
   price: string;
-  isFree: boolean;
+  tech: string;
   imageUrl: string;
   location: string;
-  startDateTime: Date;
-  endDateTime: Date;
+  createdAt: Date;
   url: string;
   organizer: {
     _id: string;
     firstName: string;
     lastName: string;
   };
+  // orgUser: string;
   category: {
     _id: string;
     name: string;
