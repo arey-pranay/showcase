@@ -6,7 +6,7 @@ import React from "react";
 import "./tagMovingBg.css";
 const EventDetails = async ({ params: { id } }: SearchParamProps) => {
   const event = await getEventById(id);
-  console.log(event);
+  // console.log(event);
   const techWithoutCommas = event.tech.replace(/,/g, "");
   const techStackArray = techWithoutCommas.split(" ");
 

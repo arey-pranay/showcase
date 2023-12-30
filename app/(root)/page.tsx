@@ -1,9 +1,18 @@
-"use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import "./animateText.css";
-export default function Home() {
+import Collection from "@/components/shared/Collection";
+import { getAllEvents } from "@/lib/actions/event.action";
+import Collection2 from "@/components/shared/Collection2";
+export default async function Home() {
+  const events = await getAllEvents({
+    query: "",
+    category: "",
+    page: 1,
+    limit: 6,
+  });
+  console.log(events);
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10 px-4 overflow-x-hidden">
@@ -39,11 +48,35 @@ export default function Home() {
       </section>
       <section
         id="events"
-        className="wrapper my-8 flex flex-col gap-8 md:gap-12"
+        className="wrapper my-8  flex flex-col gap-8 md:gap-12"
       >
-        <h2 className="h2-bold">Looking For Any Specific Project ? </h2>
-        <div className="flex w-full flex-col gap-5 md:flex-row">
-          Search Category
+        <h2 className="h2-bold text-center">Solo Projects </h2>
+        <div className="flex w-full flex-col gap-5 md:flex-col">
+          Search Category <br />
+          <Collection
+            data={events?.data}
+            emptyTitle="No Such Project, yet"
+            emptyStateSubtext="Let's Make One :) "
+            collectionType="All_Events"
+            limit={6}
+            page={1}
+            totalPages={2}
+          />
+        </div>
+        <h2 className="h2-bold text-center">
+          Projects Proposed By Other Developers{" "}
+        </h2>
+        <div className="flex w-full flex-col gap-5 md:flex-col">
+          Search Category <br />
+          <Collection2
+            data={events?.data}
+            emptyTitle="No Such Project, yet"
+            emptyStateSubtext="Let's Make One :) "
+            collectionType="All_Events"
+            limit={6}
+            page={1}
+            totalPages={2}
+          />
         </div>
       </section>
     </>

@@ -1,5 +1,5 @@
 "use server";
-import { CreateEventParams } from "@/types";
+import { CreateEventParams, GetAllEventsParams } from "@/types";
 import { handleError } from "../utils";
 import { connectToDatabase } from "../database";
 import User from "../database/models/user.model";
@@ -50,16 +50,37 @@ export const getEventById = async (eventId: string) => {
     handleError(error);
   }
 };
-
-const getOrganizer = async (userId: string) => {
+export const getAllEvents = async ({
+  query,
+  limit = 6,
+  page,
+  category,
+}: GetAllEventsParams) => {
   try {
     await connectToDatabase();
-    const organizer = await User.findById(userId);
-    return organizer;
+    const conditions = {};
+    const eventsQuery = Event.find(conditions)
+      .sort({ createdAt: "desc" })
+      .skip(0)
+      .limit(limit);
+    const events = await populateEvent(eventsQuery);
+    const eventsCount = await Event.countDocuments(conditions);
+
+    return {
+      data: JSON.parse(JSON.stringify(events)),
+      totalPages: Math.ceil(eventsCount / limit),
+    };
   } catch (error) {
-    console.error(error);
-    return null; // or handle the error in an appropriate way
+    handleError(error);
   }
 };
-
-export default getOrganizer;
+// const getOrganizer = async (userId: string) => {
+//   try {
+//     await connectToDatabase();
+//     const organizer = await User.findById(userId);
+//     return organizer;
+//   } catch (error) {
+//     console.error(error);
+//     return null; // or handle the error in an appropriate way
+//   }
+// };
