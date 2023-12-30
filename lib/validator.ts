@@ -3,7 +3,7 @@ import * as z from "zod";
 import { connectToDatabase } from "./database";
 import { auth } from "@clerk/nextjs";
 import User from "./database/models/user.model";
-import getOrganizer from "./actions/event.action";
+// import getOrganizer from "./actions/event.action";
 
 export const eventFormSchema = z.object({
   title: z.string().min(3, "Oi! Put at least 3 character na"),
