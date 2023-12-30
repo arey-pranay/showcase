@@ -1,0 +1,14 @@
+.tech-stack-item {
+  background-size: 1000% 500%;
+  animation: gradientAnimation 1s linear infinite;
+  background-color: #eee9e3;
+  /* background: linear-gradient(90deg, #eee9e3, #3d3c3c); */
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
