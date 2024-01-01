@@ -3,6 +3,7 @@ import { auth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { DeleteConfirmation } from "./DeleteConfirmation";
 type CardProps = {
   event: IEvent;
   hasOrderLink?: boolean;
@@ -34,6 +35,7 @@ const Card2 = ({ event, hasOrderLink, hidePrice }: CardProps) => {
               height={20}
             />
           </Link>
+          <DeleteConfirmation eventId={event._id} />
         </div>
       )}
       <Link

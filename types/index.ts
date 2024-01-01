@@ -40,15 +40,17 @@ export type UpdateEventParams = {
   event: {
     _id: string;
     title: string;
-    imageUrl: string;
     description: string;
-    location: string;
-    startDateTime: Date;
-    endDateTime: Date;
+    tech: string;
+    imageUrl: string;
+    videoUrl: string;
+    createdAt: Date;
+    // endDateTime: Date;
     categoryId: string;
     price: string;
-    isFree: boolean;
+    // isFree: boolean;
     url: string;
+    // orgUser: string;
   };
   path: string;
 };
