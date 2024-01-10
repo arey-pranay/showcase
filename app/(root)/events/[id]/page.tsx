@@ -81,7 +81,7 @@ const EventDetails = async ({ params: { id } }: SearchParamProps) => {
               <p className="p-bold-20 text-grey-600">What&apos;s it about ?</p>
               <p className="p-medium-14 lg:p-regular-12">{event.description}</p>
               <p className="p-medium-16 lg:p-regular-18 truncate text-primary-500 underline hover:scale-90 hover:text-orange-700 hover:-translate-x-7 transition-all 1s">
-                <a href={`https://${event.url}`} target="_blank">
+                <a href={`${event.url}`} target="_blank">
                   {event.url}
                 </a>
               </p>
