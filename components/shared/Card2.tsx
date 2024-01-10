@@ -27,7 +27,7 @@ const Card2 = ({ event, hasOrderLink, hidePrice }: CardProps) => {
     <div className="group relative flex w-full min-h-[480px] flex-col overflow-hidden rounded-b-xl bg-white shadow-md transition-all hover:shadow-lg h-[10vh]  hover:shadow-primary-500 md:min-w-[30vw]">
       {isEventCreator && (
         <div className="absolute right-2 top-2 flex flex-col gap-4 rounded-xl bg-white p-3 shadow-sm transition-all">
-          <Link href={`/events/${event._id}/update`}>
+          <Link href={`/projects/${event._id}/update`}>
             <Image
               src="/assets/icons/edit.svg"
               alt="edit"
@@ -39,12 +39,12 @@ const Card2 = ({ event, hasOrderLink, hidePrice }: CardProps) => {
         </div>
       )}
       <Link
-        href={`/events/${event._id}`}
+        href={`/projects/${event._id}`}
         style={{ backgroundImage: `url(${event.imageUrl})` }}
         className="flex-center flex-grow bg-center bg-contain border-b-4 bg-primary-50 border-primary-500 transition-all bg-no-repeat text-grey-500"
       />
       <Link
-        href={`/events/${event._id}`}
+        href={`/projects/${event._id}`}
         className="flex  flex-col gap-3 bg-primary-50/10  p-5 md:gap-4"
       >
         <div className="flex flex-col gap-2">

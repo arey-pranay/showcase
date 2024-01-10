@@ -64,7 +64,7 @@ export default async function Home() {
           />
         </div>
         <h2 className="h2-bold text-center">
-          Projects Proposed By Other Developers{" "}
+          Collaborations With Other Developers{" "}
         </h2>
         <div className="flex w-full flex-col gap-5 md:flex-col">
           Search Category <br />

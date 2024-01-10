@@ -1,6 +1,6 @@
 import { IEvent } from "@/lib/database/models/event.model";
 import React from "react";
-import Card2 from "./Card2";
+import Card from "./Card";
 type CollectionProps = {
   data: IEvent[];
   emptyTitle: string;
@@ -11,7 +11,7 @@ type CollectionProps = {
   urlParamName?: string;
   collectionType?: "Events_Organized" | "My_Tickets" | "All_Events";
 };
-const Collection2 = ({
+const CollectionComn = ({
   data,
   emptyTitle,
   emptyStateSubtext,
@@ -29,17 +29,16 @@ const Collection2 = ({
             {data.map((event) => {
               const hasOrderLink = collectionType === "Events_Organized";
               const hidePrice = collectionType === "My_Tickets";
-              if (event.organizer?._id !== "658ede8ab56bbdb15ef9bca7") {
-                return (
-                  <li key={event._id} className="flex justify-center">
-                    <Card2
-                      event={event}
-                      hasOrderLink={hasOrderLink}
-                      hidePrice={hidePrice}
-                    />
-                  </li>
-                );
-              }
+
+              return (
+                <li key={event._id} className="flex justify-center">
+                  <Card
+                    event={event}
+                    hasOrderLink={hasOrderLink}
+                    hidePrice={hidePrice}
+                  />
+                </li>
+              );
             })}
           </ul>
         </div>
@@ -53,4 +52,4 @@ const Collection2 = ({
   );
 };
 
-export default Collection2;
+export default CollectionComn;
