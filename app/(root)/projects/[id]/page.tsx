@@ -90,7 +90,7 @@ const EventDetails = async ({
               </p>
             </div>
             {/* 💵 SUPPORT 💵 */}
-            <CheckoutButton />
+            <CheckoutButton event={event} />
             <div className="flex flex-col gap-5">
               <div className="flex flex-col gap-2">
                 <p className="p-bold-20 text-grey-600">
