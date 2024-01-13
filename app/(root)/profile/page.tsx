@@ -18,9 +18,13 @@ const ProfilePage = async () => {
       <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
         <div className="wrapper flex px-12 items-center justify-center md:justify-around">
           <h3 className="h3-bold text-center">
-            Pranay &nbsp; X &nbsp; {firstName}
+            Pranay &nbsp; X &nbsp;{" "}
+            <span className="text-primary-500">{firstName}</span>
           </h3>
-          <Button asChild className="hidden md:flex">
+          <Button
+            asChild
+            className="hidden md:flex bg-white text-primary-500 hover:text-white border-2 border-primary-500"
+          >
             <Link href="/projects/create">Let&apos; Propose a Project</Link>
           </Button>
         </div>
@@ -40,7 +44,10 @@ const ProfilePage = async () => {
       <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
         <div className="wrapper flex w-full  items-center justify-center md:justify-around">
           <h3 className="h3-bold text-center">Projects That You Have Funded</h3>
-          <Button asChild className="hidden md:flex">
+          <Button
+            asChild
+            className="hidden md:flex hover:bg-white hover:text-primary-500 border-2 border-primary-500"
+          >
             <Link href="/projects">Support More Projects</Link>
           </Button>
         </div>

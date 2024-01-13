@@ -15,8 +15,18 @@ const EventDetails = async ({
 }: SearchParamProps) => {
   const event = await getEventById(id);
   // console.log(event);
-  const techWithoutCommas = event.tech.replace(/,/g, "");
-  const techStackArray = techWithoutCommas.split(" ");
+  let techStackArray2: string[] = [];
+
+  if (event.tech) {
+    const techWithoutCommas = event.tech.replace(/,/g, "");
+    const techStackArray = techWithoutCommas.split(" ");
+    techStackArray2 = techStackArray.filter(
+      (tech: string) => tech.trim() !== ""
+    );
+  }
+
+  // The above code removes elements that are empty or contain only spaces
+
   const relatedEvents = await getRelatedEventsByCategory({
     categoryId: event.category._id,
     eventId: event._id,
@@ -26,7 +36,7 @@ const EventDetails = async ({
   return (
     <>
       <section className="flex w-full p-4 justify-center bg-primary-50 bg-dotted-pattern bg-contain">
-        <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 2xl:max-w-7xl">
           <Image
             src={event.imageUrl}
             alt="hero image event photos ig"
@@ -49,8 +59,8 @@ const EventDetails = async ({
               allowFullScreen
             ></iframe>
           </div>
-          <div className="flex w-full flex-col gap-8 p-5 md:p-10">
-            <div className="flex flex-col gap-6">
+          <div className="flex w-full flex-col gap-12 md:pl-8  ">
+            <div className="flex flex-col gap-6 ">
               <div className="flex justify-between w-full">
                 <h2 className="h2-bold">{event.title}</h2>
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -66,31 +76,19 @@ const EventDetails = async ({
               </div>
 
               <div className="flex flex-wrap gap-2 overflow-visible h-full w-full">
-                {techStackArray.map((tech: string, index: string) => (
-                  <p
-                    className="tech-stack-item p-medium-16 rounded-sm   px-4 py-2.5  "
-                    key={index}
-                  >
-                    {tech}
-                  </p>
-                ))}
+                {techStackArray2
+                  .filter((tech) => tech.trim() !== "") // Remove empty or space-only elements
+                  .map((tech, index) => (
+                    <p
+                      className="tech-stack-item p-medium-16 rounded-sm px-4 py-2.5"
+                      key={index}
+                    >
+                      {tech}
+                    </p>
+                  ))}
               </div>
-              <p
-                className={`${
-                  event.organizer.firstName === "Pranay" &&
-                  event.organizer.lastName === "Parikh"
-                    ? "hidden"
-                    : "block"
-                } ml-2 mt-2 sm:mt-0`}
-              >
-                proposed by{" "}
-                <span className="font-bold">
-                  {event.organizer.firstName} {event.organizer.lastName}
-                </span>
-              </p>
             </div>
             {/* 💵 SUPPORT 💵 */}
-            <CheckoutButton event={event} />
             <div className="flex flex-col gap-5">
               <div className="flex flex-col gap-2">
                 <p className="p-bold-20 text-grey-600">
@@ -99,14 +97,14 @@ const EventDetails = async ({
                 <p className="p-medium-14 lg:p-regular-12">
                   {event.description}
                 </p>
-                <p className="p-medium-16 lg:p-regular-18 truncate text-primary-500 underline hover:text-orange-700 transition-all 1s">
+                <p className="p-medium-16 lg:p-regular-10 truncate text-primary-500 underline hover:text-orange-700 transition-all 1s">
                   <a href={`${event.url}`} target="_blank">
                     {event.url}
                   </a>
                 </p>
               </div>
             </div>
-            <div className="flex gap-2 md:gap-3">
+            {/* <div className="flex gap-2 md:gap-3">
               <Image
                 src="/assets/icons/calendar.svg"
                 alt="calendar"
@@ -118,6 +116,24 @@ const EventDetails = async ({
                   {formatDateTime(event.createdAt).dateOnly}
                 </p>
               </div>
+            </div> */}
+
+            <div className="w-full flex items-end justify-between">
+              <CheckoutButton event={event} />
+
+              <p
+                className={`${
+                  event.organizer.firstName === "Pranay" &&
+                  event.organizer.lastName === "Parikh"
+                    ? "hidden"
+                    : "block"
+                } ml-2 mt-2 sm:mt-0`}
+              >
+                with{" "}
+                <span className="font-bold">
+                  {event.organizer.firstName} {event.organizer.lastName}
+                </span>
+              </p>
             </div>
           </div>
         </div>

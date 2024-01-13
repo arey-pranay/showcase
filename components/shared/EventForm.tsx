@@ -58,7 +58,6 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
     }
     if (type === "Create") {
       try {
-        alert(userId);
         const newEvent = await createEvent({
           event: { ...values, imageUrl: uploadedImageUrl },
           userId,
@@ -69,7 +68,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           router.push(`/projects/${newEvent._id}`);
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     }
     if (type === "Update") {
@@ -79,7 +78,6 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
       }
 
       try {
-        alert(userId);
         const updatedEvent = await updateEvent({
           event: { ...values, imageUrl: uploadedImageUrl, _id: eventId },
           userId,
@@ -90,7 +88,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           router.push(`/projects/${updatedEvent._id}`);
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     }
   }
@@ -171,7 +169,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           />
         </div>
         <div className="flex flex-col gap-5 md:flex-row">
-          <FormField
+          {/* <FormField
             control={form.control}
             name="createdAt"
             render={({ field }) => (
@@ -199,8 +197,8 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                 <FormMessage />
               </FormItem>
             )}
-          />
-          <FormField
+          /> */}
+          {/* <FormField
             control={form.control}
             name="price"
             render={({ field }) => (
@@ -208,10 +206,10 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                 <FormControl>
                   <div className="flex items-center h-[56px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
                     <Image
-                      src="/assets/icons/dollar.svg"
+                      src="/assets/icons/rupee.png"
                       alt="money charged"
-                      height={24}
-                      width={24}
+                      height={4}
+                      width={10}
                       className="filter-grey"
                     />
                     <Input
@@ -234,7 +232,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                 <FormMessage />
               </FormItem>
             )}
-          />
+          /> */}
         </div>
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField

@@ -14,15 +14,25 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
   const loggedInUser = sessionClaims?.userId as string;
   const isEventCreator = loggedInUser === event.organizer?._id.toString();
 
-  let techStackArray: string[] = [];
+  let techStackArray2: string[] = [];
 
   if (event.tech) {
     const techWithoutCommas = event.tech.replace(/,/g, "");
-    techStackArray = techWithoutCommas.split(" ");
+    const techStackArray = techWithoutCommas.split(" ");
+    techStackArray2 = techStackArray.filter((tech) => tech.trim() !== "");
   }
 
+  // let techStackArray: string[] = ["a", "b", "c", "d"];
+
+  // if (event.tech) {
+  //   const techWithoutCommas = event.tech.replace(/,/g, "");
+  //   const filteredArray = techWithoutCommas.split(" ");
+  //   // Assuming techStackArray is your array
+  // const techStackArray = filteredArray.filter((tech) => tech.trim() !== "");
+  // }
+
   return (
-    <div className="group relative flex w-full min-h-[480px] flex-col overflow-hidden rounded-b-xl bg-white shadow-md transition-all hover:shadow-lg h-[10vh]  hover:shadow-primary-500 md:min-w-[30vw]">
+    <div className="group border-2 border-primary-500 relative flex w-full min-h-[480px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-100 hover:shadow-lg h-[10vh]  hover:shadow-primary-500 md:min-w-[30vw] hover:border-none">
       {isEventCreator && (
         <div className="absolute right-2 top-2 flex flex-col gap-4 rounded-xl bg-white p-3 shadow-sm transition-all">
           <Link href={`/projects/${event._id}/update`}>
@@ -39,7 +49,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
       <Link
         href={`/projects/${event._id}`}
         style={{ backgroundImage: `url(${event.imageUrl})` }}
-        className="flex-center flex-grow bg-center bg-contain border-b-4 bg-primary-50 border-primary-500 transition-all bg-no-repeat text-grey-500"
+        className="flex-center h-48 bg-contain bg-center border-b-0 bg-primary-500 border-primary-500 transition-all bg-no-repeat text-grey-500"
       />
       <Link
         href={`/projects/${event._id}`}
@@ -56,7 +66,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
           </div>
           {event.description}
           <div className="flex flex-wrap gap-2 h-full">
-            {techStackArray.map((tech: string, index: number) => (
+            {techStackArray2.map((tech: string, index: number) => (
               <p
                 className="tech-stack-item my-1 p-medium-16 rounded-sm bg-grey-50  px-4 py-2.5"
                 key={index}

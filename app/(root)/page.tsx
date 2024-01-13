@@ -12,7 +12,7 @@ export default async function Home() {
     page: 1,
     limit: 6,
   });
-  console.log(events);
+  // console.log(events);
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10 px-4 overflow-x-hidden">
@@ -28,7 +28,7 @@ export default async function Home() {
             <p className="p-regular-20 md:p-regular-24">
               Here you can drop collab ideas for Pranay or explore all the{" "}
               <b>Lit 🔥</b> projects made by him during his journey as a web
-              developer. <br /> We hope you like it :)
+              developer. <br /> He hopes you like it :)
             </p>
             <Button className="border-2 border-primary-500 hover:bg-transparent hover:text-primary-500">
               {" "}
@@ -50,8 +50,21 @@ export default async function Home() {
         id="events"
         className="wrapper my-8  flex flex-col gap-8 md:gap-12"
       >
-        <h2 className="h2-bold text-center">Solo Projects </h2>
-        <div className="flex w-full flex-col gap-5 md:flex-col">
+        <div className="flex justify-center gap-12 ">
+          <h2 className="h2-bold text-center">
+            {" "}
+            <span className="text-primary-500">Solo</span> Projects{" "}
+          </h2>
+          <Image
+            src="/assets/images/giphy.gif"
+            width={60}
+            height={40}
+            alt=""
+            className=" border-4 border-primary-500 p-1"
+          />
+        </div>
+
+        <div className="flex w-full flex-col gap-5 md:flex-col bg-primary-50">
           Search Category <br />
           <Collection
             data={events?.data}
@@ -63,10 +76,40 @@ export default async function Home() {
             totalPages={2}
           />
         </div>
-        <h2 className="h2-bold text-center">
-          Collaborations With Other Developers{" "}
-        </h2>
-        <div className="flex w-full flex-col gap-5 md:flex-col">
+        <div className="flex flex-col md:flex-row justify-center gap-12">
+          <h2 className="h2-bold text-center">
+            <span className="text-primary-500">C</span>ollaborations with{"  "}
+            <span className="text-primary-500">O</span>ther{"  "}
+            <span className="text-primary-500">De</span>velopers{" "}
+          </h2>
+          <div className="flex w-fit mx-auto md:mx-0 justify-center border-4 border-primary-500 p-2">
+            <Image
+              src="/assets/images/giphy.gif"
+              width={42}
+              height={40}
+              alt=""
+            />
+            <Image
+              src="/assets/images/giphy.gif"
+              width={42}
+              height={40}
+              alt=""
+            />
+            <Image
+              src="/assets/images/giphy.gif"
+              width={42}
+              height={40}
+              alt=""
+            />
+            <Image
+              src="/assets/images/giphy.gif"
+              width={42}
+              height={40}
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="flex w-full flex-col gap-5 md:flex-col bg-primary-50">
           Search Category <br />
           <Collection2
             data={events?.data}

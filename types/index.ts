@@ -24,10 +24,10 @@ export type CreateEventParams = {
     tech: string;
     imageUrl: string;
     videoUrl: string;
-    createdAt: Date;
+    // createdAt: Date;
     // endDateTime: Date;
     categoryId: string;
-    price: string;
+    // price: string;
     // isFree: boolean;
     url: string;
     // orgUser: string;
@@ -44,10 +44,10 @@ export type UpdateEventParams = {
     tech: string;
     imageUrl: string;
     videoUrl: string;
-    createdAt: Date;
+    // createdAt: Date;
     // endDateTime: Date;
     categoryId: string;
-    price: string;
+    // price: string;
     // isFree: boolean;
     url: string;
     // orgUser: string;
@@ -84,7 +84,7 @@ export type Event = {
   _id: string;
   title: string;
   description: string;
-  price: string;
+  // price: string;
   tech: string;
   imageUrl: string;
   location: string;
@@ -112,7 +112,7 @@ export type CheckoutOrderParams = {
   eventTitle: string;
   eventId: string;
   price: string;
-  isFree: boolean;
+  // isFree: boolean;
   buyerId: string;
 };
 

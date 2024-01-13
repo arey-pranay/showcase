@@ -20,11 +20,13 @@ const Card2 = ({ event, hasOrderLink, hidePrice }: CardProps) => {
 
   if (event.tech) {
     const techWithoutCommas = event.tech.replace(/,/g, "");
-    techStackArray = techWithoutCommas.split(" ");
+    const filteredArray = techWithoutCommas.split(" ");
+    // Assuming techStackArray is your array
+    const techStackArray = filteredArray.filter((tech) => tech.trim() !== "");
   }
 
   return (
-    <div className="group relative flex w-full min-h-[480px] flex-col overflow-hidden rounded-b-xl bg-white shadow-md transition-all hover:shadow-lg h-[10vh]  hover:shadow-primary-500 md:min-w-[30vw]">
+    <div className="group relative flex w-full min-h-[380px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg h-[10vh]  hover:shadow-primary-500 md:min-w-[30vw]">
       {isEventCreator && (
         <div className="absolute right-2 top-2 flex flex-col gap-4 rounded-xl bg-white p-3 shadow-sm transition-all">
           <Link href={`/projects/${event._id}/update`}>
@@ -41,7 +43,7 @@ const Card2 = ({ event, hasOrderLink, hidePrice }: CardProps) => {
       <Link
         href={`/projects/${event._id}`}
         style={{ backgroundImage: `url(${event.imageUrl})` }}
-        className="flex-center flex-grow bg-center bg-contain border-b-4 bg-primary-50 border-primary-500 transition-all bg-no-repeat text-grey-500"
+        className="flex-center h-48 bg-contain bg-center border-b-0 bg-primary-500 border-primary-500 transition-all bg-no-repeat text-grey-500"
       />
       <Link
         href={`/projects/${event._id}`}

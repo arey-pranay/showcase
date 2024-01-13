@@ -12,7 +12,7 @@ const UpdateEvent = async ({ params: { id } }: UpdateEventProps) => {
   const { sessionClaims } = auth();
   const userId = sessionClaims?.userId as string;
   const event = await getEventById(id);
-  console.log(userId);
+  // console.log(userId);
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 mf:py-10 ">

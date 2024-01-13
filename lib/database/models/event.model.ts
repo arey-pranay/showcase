@@ -8,7 +8,7 @@ export interface IEvent extends Document {
   imageUrl: string;
   videoUrl?: string;
   tech?: string;
-  price?: string;
+  // price?: string;
   url?: string;
   category?: { _id: string; name: string };
   organizer?: { _id: string; firstName: string; lastName: string };
@@ -22,7 +22,7 @@ const EventSchema = new Schema({
   imageUrl: { type: String, required: true }, //thumbnail (outside)
   videoUrl: { type: String }, //iframe (inside)
   tech: { type: String }, //convert to elements and display in a fancy manner
-  price: { type: String }, //Buy a Coffee ?
+  // price: { type: String }, //Buy a Coffee ?
   url: { type: String }, //deployement link
   // orgUser: { type: String },
 
