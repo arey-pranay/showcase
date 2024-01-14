@@ -35,8 +35,8 @@ const EventDetails = async ({
 
   return (
     <>
-      <section className="flex w-full p-4 justify-center bg-primary-50 bg-dotted-pattern bg-contain">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 2xl:max-w-7xl">
+      <section className="flex w-full p-4 justify-between bg-primary-50 bg-dotted-pattern bg-contain">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 w-full 2xl:max-w-7xl">
           <Image
             src={event.imageUrl}
             alt="hero image event photos ig"
@@ -59,7 +59,7 @@ const EventDetails = async ({
               allowFullScreen
             ></iframe>
           </div>
-          <div className="flex w-full flex-col gap-12 md:pl-8  ">
+          <div className="flex w-full items-stretch px-4 flex-col gap-8 md:pl-8  ">
             <div className="flex flex-col gap-6 ">
               <div className="flex justify-between w-full">
                 <h2 className="h2-bold">{event.title}</h2>

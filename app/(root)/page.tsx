@@ -5,6 +5,7 @@ import "./animateText.css";
 import Collection from "@/components/shared/Collection";
 import { getAllEvents } from "@/lib/actions/event.action";
 import Collection2 from "@/components/shared/Collection2";
+import Search from "@/components/shared/Search";
 export default async function Home() {
   const events = await getAllEvents({
     query: "",
@@ -65,7 +66,7 @@ export default async function Home() {
         </div>
 
         <div className="flex w-full flex-col gap-5 md:flex-col bg-primary-50">
-          Search Category <br />
+          <Search /> Category <br />
           <Collection
             data={events?.data}
             emptyTitle="No Such Project, yet"
@@ -110,7 +111,7 @@ export default async function Home() {
           </div>
         </div>
         <div className="flex w-full flex-col gap-5 md:flex-col bg-primary-50">
-          Search Category <br />
+          <Search /> Category <br />
           <Collection2
             data={events?.data}
             emptyTitle="No Such Project, yet"

@@ -50,9 +50,9 @@ const Checkout = ({ event, userId }: { event: IEvent; userId: string }) => {
       <div className="group flex w-24">
         <div className="flex ">
           <input
-            type="text"
+            type="number"
             id="supportInput"
-            placeholder="Enter amount"
+            placeholder="Amount (INR)"
             className={`transition-all duration-300  rounded-l-md
             group-hover:w-32  w-0 ml-0 
            overflow-hidden group-hover:border-2 border-primary-500 group-hover:px-2 group-hover:py-1`}
