@@ -60,7 +60,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
             <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">
               {event.title}
             </p>
-            <span className="p-semibold-14 w-min rounded-full bg-primary-500 text-white px-4 py-1">
+            <span className="p-semibold-14 w-min rounded-full text-center bg-primary-500 text-white px-4 py-1">
               {event.category?.name}
             </span>
           </div>
