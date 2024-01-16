@@ -96,7 +96,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-5 max-w-4xl mx-auto"
+        className="mx-auto flex max-w-4xl flex-col gap-5"
       >
         <div className="flex flex-col gap-5 md:flex-row">
           <FormField
@@ -243,13 +243,14 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                 <FormControl>
                   <div className="flex-center h-[56px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
                     <Image
-                      src="/assets/icons/location-grey.svg"
+                      src="/assets/icons/tech-stackk.svg"
                       alt="tech stacks"
                       height={24}
                       width={24}
+                      className="opacity-60"
                     />
                     <Input
-                      placeholder="Enter CSV of Tech Stack Used"
+                      placeholder=" *Tech Stack* like CSS, JS, jetpack-compose, tailwind-css whatever"
                       {...field}
                       className="input-field"
                     />

@@ -23,9 +23,9 @@ export default async function Home({ searchParams }: SearchParamProps) {
   // console.log(events);
   return (
     <>
-      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10 overflow-x-hidden px-8">
+      <section className="overflow-x-hidden bg-primary-50 bg-dotted-pattern bg-contain px-8 py-5 md:py-10">
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
-          <div className="flex flex-col justify-center gap-8">
+          <div className="mr-10 flex flex-col justify-center gap-8">
             <h1 className="h1-bold ">
               Hola, welcome to Fire-Work by{" "}
               <span className="colorChange">Pranay Parikh </span>.{" "}
@@ -43,13 +43,13 @@ export default async function Home({ searchParams }: SearchParamProps) {
               <Link href="#events">Let&apos;s Go !</Link>
             </Button>
           </div>
-          <div>
+          <div className="flex h-full items-center justify-center ">
             <Image
               src="/assets/images/heroFW.png"
               alt="Hero Image.."
               width={1000}
               height={1000}
-              className="max-h-[90vh] pt-4 object-contain object-center 2xl:max-h-[50vh]  hover:border-0 border-8 border-primary-500 transition-all 0.5s"
+              className=" 0.5s my-auto max-h-[80vh] border-8 border-primary-500 object-contain object-center pt-4 transition-all hover:border-0 "
             />
           </div>
         </div>
@@ -58,13 +58,13 @@ export default async function Home({ searchParams }: SearchParamProps) {
         id="events"
         className="wrapper my-8  flex flex-col gap-8 md:gap-0"
       >
-        <div className="flex flex-col md:flex-row gap-4 md:gap-8 md:px-12 md:mb-12">
+        <div className="flex flex-col gap-4 md:mb-12 md:flex-row md:gap-8 md:px-12">
           {" "}
           <Search />
           <CategoryFilter />
         </div>
 
-        <div className="flex w-full py-12 mb-0 flex-col gap-5 md:flex-col bg-primary-50 ">
+        <div className="mb-0 flex w-full flex-col gap-5 bg-primary-50 py-12 md:flex-col ">
           <div className="flex justify-center gap-12 ">
             <h2 className="h2-bold text-center">
               {" "}
@@ -88,17 +88,17 @@ export default async function Home({ searchParams }: SearchParamProps) {
             page={1}
             totalPages={2}
           />
-          <div className="w-[80vw] h-2 mx-auto bg-gradient-to-r from-primary-500 via-primary-500/20 mt-12 to-primary-500"></div>
+          <div className="mx-auto mt-12 h-2 w-[80vw] bg-gradient-to-r from-primary-500 via-primary-500/20 to-primary-500"></div>
         </div>
-        <div className="flex w-full pt-4 pb-12 mb-12 flex-col gap-5 md:flex-col bg-primary-50 ">
-          <div className="flex flex-col md:flex-row justify-center gap-12 mb-8">
+        <div className="mb-12 flex w-full flex-col gap-5 bg-primary-50 pb-12 pt-4 md:flex-col ">
+          <div className="mb-8 flex flex-col justify-center gap-12 md:flex-row">
             <h2 className="h2-bold text-center">
               <span className="text-primary-500">C</span>ollaborations with
               {"  "}
               <span className="text-primary-500">O</span>ther{"  "}
               <span className="text-primary-500">De</span>velopers{" "}
             </h2>
-            <div className="flex w-fit mx-auto md:mx-0 justify-center border-4 border-primary-500 p-2">
+            <div className="mx-auto flex w-fit justify-center border-4 border-primary-500 p-2 md:mx-0">
               <Image
                 src="/assets/images/giphy.gif"
                 width={42}

@@ -33,7 +33,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
   // }
 
   return (
-    <div className="group border-2 border-primary-500 relative flex w-full min-h-[400px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-100 hover:shadow-lg h-[10vh]  hover:shadow-primary-500 md:min-w-[30vw] hover:border-none">
+    <div className="group relative flex h-[10vh] min-h-[400px] w-full flex-col overflow-hidden rounded-xl border-2 border-primary-500 bg-white shadow-md transition-all duration-100 hover:border-none  hover:shadow-lg hover:shadow-primary-500 md:min-w-[20vw]">
       {(isEventCreator || isPranay) && (
         <div className="absolute right-2 top-2 flex flex-col gap-4 rounded-xl bg-white p-3 shadow-sm transition-all">
           <Link href={`/projects/${event._id}/update`}>
@@ -50,26 +50,26 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
       <Link
         href={`/projects/${event._id}`}
         style={{ backgroundImage: `url(${event.imageUrl})` }}
-        className="flex-center h-48 bg-contain bg-center border-b-0 bg-primary-500 border-primary-500 transition-all bg-no-repeat text-grey-500"
+        className="flex-center h-48 border-b-0 border-primary-500 bg-primary-500 bg-contain bg-center bg-no-repeat text-grey-500 transition-all"
       />
       <Link
         href={`/projects/${event._id}`}
         className="flex  flex-col gap-3 bg-primary-50/10  p-5 md:gap-4"
       >
         <div className="flex flex-col gap-2">
-          <div className="flex flex-wrap gap-2 justify-between w-full">
+          <div className="flex w-full flex-wrap justify-between gap-2">
             <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">
               {event.title}
             </p>
-            <span className="p-semibold-14 w-min rounded-full text-center bg-primary-500 text-white px-4 py-1">
+            <span className="p-semibold-14 w-min rounded-full bg-primary-500 px-4 py-1 text-center text-white">
               {event.category?.name}
             </span>
           </div>
           {event.description}
-          <div className="flex flex-wrap gap-2 h-full">
+          <div className="flex h-full flex-wrap gap-2">
             {techStackArray2.map((tech: string, index: number) => (
               <p
-                className="tech-stack-item my-1 p-medium-16 rounded-sm bg-grey-50  px-4 py-2.5"
+                className="tech-stack-item p-medium-16 my-1 rounded-sm bg-grey-50  px-4 py-2.5"
                 key={index}
               >
                 {tech}
