@@ -138,6 +138,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
             page={page}
             totalPages={eventSolos?.totalPages}
           />
+
           <div className="mx-auto mt-12 h-2 w-[80vw] bg-gradient-to-r from-primary-500 via-primary-500/20 to-primary-500"></div>
         </div>
         <div className="mb-12 flex w-full flex-col gap-5 bg-primary-50 pb-12 pt-4 md:flex-col ">

@@ -58,10 +58,10 @@ const Collection2 = async ({
           )}
         </div>
       ) : (
-        <>
-          <div className="flex-center mx-auto min-h-[200px] w-[90vw] flex-col gap-3 rounded-[14px] bg-grey-50 py-28 text-center md:px-24">
+        <div className="mx-auto  flex w-[90vw] flex-col items-center gap-10">
+          <div className="flex-center mx-auto min-h-[200px] w-full flex-col gap-3 rounded-[14px] bg-grey-50 py-28 text-center ">
             <h3 className="p-bold-20 md:h5-bold">
-              Oi, stop, you&apos;ve browsed all such collaborations{" "}
+              You&apos;ve browsed all such collaborations...
             </h3>
             <p className="p-regular-14">
               Feel free to{" "}
@@ -80,6 +80,7 @@ const Collection2 = async ({
                 {" "}
                 removing filters
               </Link>{" "}
+              {" :) "}
             </p>
           </div>
           {maxTPCVal > 0 && (
@@ -89,7 +90,7 @@ const Collection2 = async ({
               totalPages={maxTPCVal}
             />
           )}
-        </>
+        </div>
       )}
     </>
   );
