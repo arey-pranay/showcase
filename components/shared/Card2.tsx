@@ -13,9 +13,10 @@ const Card2 = ({ event, hasOrderLink, hidePrice }: CardProps) => {
   const { sessionClaims } = auth();
   const loggedInUser = sessionClaims?.userId as string;
   const isEventCreator = loggedInUser === event.organizer?._id.toString();
+  const isPranay = loggedInUser === "658ede8ab56bbdb15ef9bca7";
 
   // console.log(loggedInUser);
-  const pranayId = "658ede8ab56bbdb15ef9bca7";
+  // const pranayId = "658ede8ab56bbdb15ef9bca7";
   let techStackArray: string[] = [];
 
   if (event.tech) {
@@ -27,7 +28,7 @@ const Card2 = ({ event, hasOrderLink, hidePrice }: CardProps) => {
 
   return (
     <div className="group relative flex w-full min-h-[380px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg h-[10vh]  hover:shadow-primary-500 md:min-w-[30vw]">
-      {isEventCreator && (
+      {(isEventCreator || isPranay) && (
         <div className="absolute right-2 top-2 flex flex-col gap-4 rounded-xl bg-white p-3 shadow-sm transition-all">
           <Link href={`/projects/${event._id}/update`}>
             <Image
