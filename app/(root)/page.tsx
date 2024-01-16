@@ -3,37 +3,86 @@ import Image from "next/image";
 import Link from "next/link";
 import "./animateText.css";
 import Collection from "@/components/shared/Collection";
-import { getAllEvents } from "@/lib/actions/event.action";
+import {
+  getAllEvents,
+  getCollabEvents,
+  getEventsByUser,
+  getSoloEvents,
+} from "@/lib/actions/event.action";
 import Collection2 from "@/components/shared/Collection2";
 import Search from "@/components/shared/Search";
 import { SearchParamProps } from "@/types";
 import CategoryFilter from "@/components/shared/CategoryFilter";
 import Pagination from "@/components/shared/Pagination";
 import CollectionComn from "@/components/shared/CollectionComn";
+import { SignedIn, auth } from "@clerk/nextjs";
+import User from "@/lib/database/models/user.model";
+import FirstN from "@/components/shared/FirstN";
 export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
   const searchText = (searchParams?.query as string) || "";
   const category = (searchParams?.category as string) || "";
 
-  const events = await getAllEvents({
+  const eventSolos = await getSoloEvents({
+    userId: "658ede8ab56bbdb15ef9bca7",
     query: searchText,
     category: category,
     page: page,
-    limit: 6,
+    limit: 3,
   });
+  const eventCollab = await getCollabEvents({
+    userId: "658ede8ab56bbdb15ef9bca7",
+    query: searchText,
+    category: category,
+    page: page,
+    limit: 3,
+  });
+
+  const tpc1 = eventSolos?.totalPages;
+  const tpc2 = eventCollab?.totalPages;
+  let maxTPCVal = 100;
+  if (tpc1 && tpc2) {
+    maxTPCVal = tpc1 > tpc2 ? tpc1 : tpc2;
+  }
+
+  // let soloProj = [];
+  // let collabProj = [];
+  // for (let i = 0; i < events.objsize(); i++) {
+  //   if (events?.data[i].organizer._id === "658ede8ab56bbdb15ef9bca7")
+  //     soloProj.push(events?.data[i]);
+  //   else collabProj.push(events?.data[i]);
+  // }
+  // console.log(
+  //   "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+  // );
+  // console.log(soloProj[1]);
+  // console.log(
+  //   "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+  // );
+  // console.log(collabProj);
+  // console.log(
+  //   "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+  // );
+
   // console.log(events);
   return (
     <>
       <section className="overflow-x-hidden bg-primary-50 bg-dotted-pattern bg-contain px-8 py-5 md:py-10">
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="mr-10 flex flex-col justify-center gap-8">
-            <h1 className="h1-bold ">
-              Hola, welcome to Fire-Work by{" "}
-              <span className="colorChange">Pranay Parikh </span>.{" "}
-              {/* <TextTransition springConfig={presets.molasses}>
+            <div>
+              <SignedIn>
+                <FirstN />,
+              </SignedIn>
+              <h1 className="h1-bold inline">
+                Welcome to <br /> Fire-Work by{" "}
+                <span className="colorChange">Pranay Parikh </span>.{" "}
+                {/* <TextTransition springConfig={presets.molasses}>
                 {TEXTS[index % TEXTS.length]}
               </TextTransition> */}
-            </h1>
+              </h1>
+            </div>
+
             <p className="p-regular-20 md:p-regular-24">
               Here you can drop collab ideas for Pranay or explore all the{" "}
               <b>Lit 🔥</b> projects made by him during his journey as a web
@@ -81,13 +130,13 @@ export default async function Home({ searchParams }: SearchParamProps) {
           </div>
           <br />
           <Collection
-            data={events?.data}
+            data={eventSolos?.data}
             emptyTitle="No Such Project, yet"
             emptyStateSubtext="Let's Make One :) "
             collectionType="All_Events"
             limit={6}
             page={page}
-            totalPages={events?.totalPages}
+            totalPages={eventSolos?.totalPages}
           />
           <div className="mx-auto mt-12 h-2 w-[80vw] bg-gradient-to-r from-primary-500 via-primary-500/20 to-primary-500"></div>
         </div>
@@ -128,13 +177,14 @@ export default async function Home({ searchParams }: SearchParamProps) {
           </div>
           {/* <Search /> Category <br /> */}
           <Collection2
-            data={events?.data}
+            data={eventCollab?.data}
             emptyTitle="No Such Project, yet"
             emptyStateSubtext="Let's Make One :) "
             collectionType="All_Events"
-            limit={12}
+            limit={6}
             page={page}
-            totalPages={events?.totalPages}
+            totalPages={eventCollab?.totalPages}
+            maxTPCVal={maxTPCVal}
           />
         </div>
       </section>

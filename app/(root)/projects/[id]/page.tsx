@@ -17,7 +17,7 @@ const EventDetails = async ({
   // console.log(event);
   let techStackArray2: string[] = [];
 
-  if (event.tech) {
+  if (event?.tech) {
     const techWithoutCommas = event.tech.replace(/,/g, "");
     const techStackArray = techWithoutCommas.split(" ");
     techStackArray2 = techStackArray.filter(
@@ -28,8 +28,8 @@ const EventDetails = async ({
   // The above code removes elements that are empty or contain only spaces
 
   const relatedEvents = await getRelatedEventsByCategory({
-    categoryId: event.category._id,
-    eventId: event._id,
+    categoryId: event?.category?._id,
+    eventId: event?._id,
     page: searchParams.page as string,
   });
 
@@ -38,22 +38,22 @@ const EventDetails = async ({
       <section className="flex w-full justify-between bg-primary-50 bg-dotted-pattern bg-contain p-4">
         <div className="grid w-full grid-cols-1 gap-12 md:grid-cols-2 2xl:max-w-7xl">
           <Image
-            src={event.imageUrl}
+            src={event?.imageUrl}
             alt="hero image event photos ig"
             width={1000}
             height={1000}
             className={`${
-              event.videoUrl.length < 1 ? "block " : "hidden "
+              event?.videoUrl.length < 1 ? "block " : "hidden "
             }h-full 1s min-h-[300px] border-8 border-primary-500 object-cover object-center transition-all hover:border-0`}
           />
           <div
             className={`${
-              event.videoUrl.length < 1 ? "hidden " : "block "
+              event?.videoUrl.length < 1 ? "hidden " : "block "
             }h-full 1s relative min-h-[300px] border-8 border-primary-500 transition-all hover:border-0`}
           >
             <iframe
               className="absolute inset-0 h-full w-full"
-              src={event.videoUrl}
+              src={event?.videoUrl}
               title="YouTube Video"
               frameBorder="0"
               allowFullScreen
@@ -62,13 +62,13 @@ const EventDetails = async ({
           <div className="flex  w-full flex-col items-stretch gap-8 px-4 md:pl-8  ">
             <div className="flex flex-col gap-6 ">
               <div className="flex w-full justify-between">
-                <h2 className="h2-bold">{event.title}</h2>
+                <h2 className="h2-bold">{event?.title}</h2>
                 <div className="flex h-fit min-w-fit justify-end ">
                   <p
                     className="p-bold-20 h-fit w-fit rounded-full 
                    bg-primary-500/10 px-5 py-2 text-primary-500"
                   >
-                    {event.category.name}
+                    {event?.category?.name}
                   </p>
                 </div>
               </div>
@@ -93,11 +93,11 @@ const EventDetails = async ({
                   What&apos;s it about ?
                 </p>
                 <p className="p-medium-14 lg:p-regular-12">
-                  {event.description}
+                  {event?.description}
                 </p>
                 <p className="p-medium-16 lg:p-regular-10 1s truncate text-primary-500 underline transition-all hover:text-orange-700">
-                  <a href={`${event.url}`} target="_blank">
-                    {event.url}
+                  <a href={`${event?.url}`} target="_blank">
+                    {event?.url}
                   </a>
                 </p>
               </div>
@@ -121,15 +121,15 @@ const EventDetails = async ({
 
               <p
                 className={`${
-                  event.organizer.firstName === "Pranay" &&
-                  event.organizer.lastName === "Parikh"
+                  event?.organizer.firstName === "Pranay" &&
+                  event?.organizer.lastName === "Parikh"
                     ? "hidden"
                     : "block"
                 } ml-2 mt-2 sm:mt-0`}
               >
                 with{" "}
                 <span className="font-bold">
-                  {event.organizer.firstName} {event.organizer.lastName}
+                  {event?.organizer.firstName} {event?.organizer.lastName}
                 </span>
               </p>
             </div>
