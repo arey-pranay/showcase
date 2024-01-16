@@ -61,7 +61,7 @@ const EventDetails = async ({
           </div>
           <div className="flex  w-full flex-col items-stretch gap-8 px-4 md:pl-8  ">
             <div className="flex flex-col gap-6">
-              <div className="flex w-full flex-wrap justify-between   md:flex-nowrap ">
+              <div className="flex w-full flex-wrap justify-between md:flex-nowrap ">
                 <h2 className="h2-bold">{event?.title}</h2>
                 <div className="flex h-fit min-w-fit justify-end ">
                   <p

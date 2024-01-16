@@ -15,6 +15,7 @@ import {
   GetAllEventsParams,
   GetEventsByUserParams,
   GetRelatedEventsByCategoryParams,
+  GetEventsByUserParams2,
 } from "@/types";
 
 const getCategoryByName = async (name: string) => {
@@ -178,7 +179,7 @@ export async function getSoloEvents({
   page,
   query,
   category,
-}: GetEventsByUserParams) {
+}: GetEventsByUserParams2) {
   try {
     await connectToDatabase();
     const titleCondition = query
@@ -219,7 +220,7 @@ export async function getCollabEvents({
   page,
   query,
   category,
-}: GetEventsByUserParams) {
+}: GetEventsByUserParams2) {
   try {
     await connectToDatabase();
     const titleCondition = query

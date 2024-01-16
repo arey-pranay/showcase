@@ -71,6 +71,14 @@ export type GetEventsByUserParams = {
   userId: string;
   limit?: number;
   page: number;
+  // query: string;
+  // category: string;
+};
+
+export type GetEventsByUserParams2 = {
+  userId: string;
+  limit?: number;
+  page: number;
   query: string;
   category: string;
 };
