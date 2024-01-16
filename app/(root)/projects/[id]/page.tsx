@@ -21,7 +21,7 @@ const EventDetails = async ({
     const techWithoutCommas = event.tech.replace(/,/g, "");
     const techStackArray = techWithoutCommas.split(" ");
     techStackArray2 = techStackArray.filter(
-      (tech: string) => tech.trim() !== ""
+      (tech: string) => tech.trim() !== "",
     );
   }
 
@@ -35,8 +35,8 @@ const EventDetails = async ({
 
   return (
     <>
-      <section className="flex w-full p-4 justify-between bg-primary-50 bg-dotted-pattern bg-contain">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 w-full 2xl:max-w-7xl">
+      <section className="flex w-full justify-between bg-primary-50 bg-dotted-pattern bg-contain p-4">
+        <div className="grid w-full grid-cols-1 gap-12 md:grid-cols-2 2xl:max-w-7xl">
           <Image
             src={event.imageUrl}
             alt="hero image event photos ig"
@@ -44,38 +44,36 @@ const EventDetails = async ({
             height={1000}
             className={`${
               event.videoUrl.length < 1 ? "block " : "hidden "
-            }h-full min-h-[300px] object-cover object-center border-8 hover:border-0 transition-all 1s border-primary-500`}
+            }h-full 1s min-h-[300px] border-8 border-primary-500 object-cover object-center transition-all hover:border-0`}
           />
           <div
             className={`${
               event.videoUrl.length < 1 ? "hidden " : "block "
-            }h-full min-h-[300px] relative border-8 hover:border-0 transition-all 1s border-primary-500`}
+            }h-full 1s relative min-h-[300px] border-8 border-primary-500 transition-all hover:border-0`}
           >
             <iframe
-              className="absolute inset-0 w-full h-full"
+              className="absolute inset-0 h-full w-full"
               src={event.videoUrl}
               title="YouTube Video"
               frameBorder="0"
               allowFullScreen
             ></iframe>
           </div>
-          <div className="flex w-full items-stretch px-4 flex-col gap-8 md:pl-8  ">
+          <div className="flex  w-full flex-col items-stretch gap-8 px-4 md:pl-8  ">
             <div className="flex flex-col gap-6 ">
-              <div className="flex justify-between w-full">
+              <div className="flex w-full justify-between">
                 <h2 className="h2-bold">{event.title}</h2>
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <div className="flex gap-3">
-                    {/* <p className="p-bold-20 rounded-full bg-green-500/10 px-5 py-2 text-green-700">
-                  {`Rs. ${event.price}`}
-                </p> */}
-                    <p className="p-bold-20 rounded-full bg-primary-500/10 px-5 py-2 text-primary-500">
-                      {event.category.name}
-                    </p>
-                  </div>
+                <div className="flex h-fit min-w-fit justify-end ">
+                  <p
+                    className="p-bold-20 h-fit w-fit rounded-full 
+                   bg-primary-500/10 px-5 py-2 text-primary-500"
+                  >
+                    {event.category.name}
+                  </p>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 overflow-visible h-full w-full">
+              <div className="flex h-full w-full flex-wrap gap-2 overflow-visible">
                 {techStackArray2
                   .filter((tech) => tech.trim() !== "") // Remove empty or space-only elements
                   .map((tech, index) => (
@@ -97,7 +95,7 @@ const EventDetails = async ({
                 <p className="p-medium-14 lg:p-regular-12">
                   {event.description}
                 </p>
-                <p className="p-medium-16 lg:p-regular-10 truncate text-primary-500 underline hover:text-orange-700 transition-all 1s">
+                <p className="p-medium-16 lg:p-regular-10 1s truncate text-primary-500 underline transition-all hover:text-orange-700">
                   <a href={`${event.url}`} target="_blank">
                     {event.url}
                   </a>
@@ -118,7 +116,7 @@ const EventDetails = async ({
               </div>
             </div> */}
 
-            <div className="w-full flex items-end justify-between">
+            <div className="flex w-full items-end justify-between">
               <CheckoutButton event={event} />
 
               <p

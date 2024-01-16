@@ -9,6 +9,7 @@ import Search from "@/components/shared/Search";
 import { SearchParamProps } from "@/types";
 import CategoryFilter from "@/components/shared/CategoryFilter";
 import Pagination from "@/components/shared/Pagination";
+import CollectionComn from "@/components/shared/CollectionComn";
 export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
   const searchText = (searchParams?.query as string) || "";
@@ -85,8 +86,8 @@ export default async function Home({ searchParams }: SearchParamProps) {
             emptyStateSubtext="Let's Make One :) "
             collectionType="All_Events"
             limit={6}
-            page={1}
-            totalPages={2}
+            page={page}
+            totalPages={events?.totalPages}
           />
           <div className="mx-auto mt-12 h-2 w-[80vw] bg-gradient-to-r from-primary-500 via-primary-500/20 to-primary-500"></div>
         </div>
@@ -131,9 +132,9 @@ export default async function Home({ searchParams }: SearchParamProps) {
             emptyTitle="No Such Project, yet"
             emptyStateSubtext="Let's Make One :) "
             collectionType="All_Events"
-            limit={6}
-            page={1}
-            totalPages={2}
+            limit={12}
+            page={page}
+            totalPages={events?.totalPages}
           />
         </div>
       </section>

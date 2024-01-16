@@ -26,17 +26,17 @@ const Pagination = ({ urlParamName, page, totalPages }: PaginationProps) => {
       <Button
         size="lg"
         variant="outline"
-        className="w-28"
+        className="group w-28 border-2 border-primary-500/70 text-gray-900 transition-all duration-200 hover:border-white hover:bg-primary-500/70 hover:text-white"
         onClick={() => onClick("prev")}
         disabled={Number(page) <= 1}
       >
-        <span className="hidden group-hover:block "> &nbsp; {"<<<"} </span>{" "}
-        Previous{" "}
+        <span className="hidden group-hover:block "> &nbsp; {"<<<"} </span>
+        {"<"} Prev{" "}
       </Button>
       <Button
         size="lg"
         variant="outline"
-        className="w-28 hover:bg-primary-500/70 text-gray-900 group transition-all duration-200 border-2 border-primary-500/70 hover:text-white hover:border-white"
+        className="group w-28 border-2 border-primary-500/70 text-gray-900 transition-all duration-200 hover:border-white hover:bg-primary-500/70 hover:text-white"
         onClick={() => onClick("next")}
         disabled={Number(page) >= totalPages}
       >
