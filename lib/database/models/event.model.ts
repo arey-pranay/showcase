@@ -15,7 +15,7 @@ export interface IEvent extends Document {
   // orgUser?: string;
 }
 const EventSchema = new Schema({
-  username: { type: String },
+  // username: { type: String },
   title: { type: String, required: true }, //name of project
   description: { type: String, required: true }, //description of project
   createdAt: { type: Date, default: Date.now }, //year and month of creation

@@ -14,7 +14,7 @@ export const headerLinks = [
 ];
 
 export const eventDefaultValues = {
-  username: "",
+  // username: "",
   title: "",
   description: "",
   // location: "",

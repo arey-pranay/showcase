@@ -74,8 +74,8 @@ export async function updateEvent({ userId, event, path }: UpdateEventParams) {
     await connectToDatabase();
 
     const eventToUpdate = await Event.findById(event._id);
-    if (!eventToUpdate || eventToUpdate.organizer.toHexString() !== userId) {
-      throw new Error("Unauthorized or event not found");
+    if (!eventToUpdate) {
+      throw new Error("Event not found");
     }
 
     const updatedEvent = await Event.findByIdAndUpdate(
@@ -87,7 +87,8 @@ export async function updateEvent({ userId, event, path }: UpdateEventParams) {
 
     return JSON.parse(JSON.stringify(updatedEvent));
   } catch (error) {
-    handleError(error);
+    // alert("Cannot Update");
+    handleError("Backend Error" + error);
   }
 }
 
