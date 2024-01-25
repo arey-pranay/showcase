@@ -9,7 +9,6 @@ import React from "react";
 import "./tagMovingBg.css";
 import CollectionComn from "@/components/shared/CollectionComn";
 import CheckoutButton from "@/components/shared/CheckoutButton";
-import Link from "next/link";
 const EventDetails = async ({
   params: { id },
   searchParams,
@@ -33,12 +32,7 @@ const EventDetails = async ({
     eventId: event?._id,
     page: searchParams.page as string,
   });
-  {
-    console.log(event?.url);
-  }
-  const linkk = event?.url.startsWith("http")
-    ? event?.url
-    : `https://${event?.url}`;
+
   return (
     <>
       <section className="flex w-full justify-between bg-primary-50 bg-dotted-pattern bg-contain p-4">
@@ -102,9 +96,9 @@ const EventDetails = async ({
                   {event?.description}
                 </p>
                 <p className="p-medium-16 lg:p-regular-10 1s truncate text-primary-500 underline transition-all hover:text-orange-700">
-                  <Link href={linkk} target="_blank">
+                  <a href={`${event?.url}`} target="_blank">
                     {event?.url}
-                  </Link>
+                  </a>
                 </p>
               </div>
             </div>

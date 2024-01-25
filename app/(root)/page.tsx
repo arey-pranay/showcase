@@ -75,7 +75,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
                 <FirstN />
               </SignedIn>{" "}
               <h1 className="h1-bold inline">
-                Welcome to <br /> Fire-Work by{" "}
+                Welcome to Fire-Work by{" "}
                 <span className="colorChange">Pranay Parikh </span>.{" "}
                 {/* <TextTransition springConfig={presets.molasses}>
                 {TEXTS[index % TEXTS.length]}
