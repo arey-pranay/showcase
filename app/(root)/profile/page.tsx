@@ -11,10 +11,11 @@ import React from "react";
 
 const ProfilePage = async ({ searchParams }: SearchParamProps) => {
   const { sessionClaims } = auth();
+  console.log(sessionClaims);
+
   const userId = sessionClaims?.userId as string;
   const userData = await User.findById(userId);
   const firstName = userData.firstName;
-  // console.log(firstName);
   const ordersPage = Number(searchParams?.ordersPage) || 1;
   const eventsPage = Number(searchParams?.eventsPage) || 1;
   const orders = await getOrdersByUser({ userId, page: ordersPage });

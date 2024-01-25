@@ -29,8 +29,11 @@ const Card2 = ({ event, hasOrderLink, hidePrice }: CardProps) => {
   return (
     <div className="group relative flex h-[10vh] min-h-[380px] w-full flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg  hover:shadow-primary-500 md:min-w-[20vw]">
       {(isEventCreator || isPranay) && (
-        <div className="absolute right-2 top-2 flex flex-col gap-4 rounded-xl bg-white p-3 shadow-sm transition-all">
-          <Link href={`/projects/${event._id}/update`}>
+        <div className="absolute right-2 top-2 flex flex-col rounded-xl bg-white shadow-sm transition-all ">
+          <Link
+            href={`/projects/${event._id}/update`}
+            className="p-3 hover:rounded-t-xl hover:bg-slate-200"
+          >
             <Image
               src="/assets/icons/edit.svg"
               alt="edit"
@@ -55,11 +58,12 @@ const Card2 = ({ event, hasOrderLink, hidePrice }: CardProps) => {
             <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">
               {event.title}
             </p>
-            <span className="p-semibold-14 w-min rounded-full bg-primary-500 px-4 py-1 text-center text-white">
+            <span className="p-semibold-14 h-min rounded-full bg-primary-500 px-4 py-1 text-center text-white">
               {event.category?.name}
             </span>
           </div>
-          {event.description}
+          <div className="line-clamp-3"> {event.description}</div>
+
           {/* <div className="flex flex-wrap gap-2 h-full">
             {techStackArray.map((tech: string, index: number) => (
               <p

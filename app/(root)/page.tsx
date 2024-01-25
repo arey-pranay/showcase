@@ -71,9 +71,9 @@ export default async function Home({ searchParams }: SearchParamProps) {
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="mr-10 flex flex-col justify-center gap-8">
             <div>
-              {/* <SignedIn>
-                <FirstN />,
-              </SignedIn> */}
+              <SignedIn>
+                <FirstN />
+              </SignedIn>{" "}
               <h1 className="h1-bold inline">
                 Welcome to <br /> Fire-Work by{" "}
                 <span className="colorChange">Pranay Parikh </span>.{" "}
@@ -97,9 +97,9 @@ export default async function Home({ searchParams }: SearchParamProps) {
             <Image
               src="/assets/images/heroFW.png"
               alt="Hero Image.."
-              width={1000}
-              height={1000}
-              className=" 0.5s my-auto max-h-[80vh] border-8 border-primary-500 object-contain object-center pt-4 transition-all hover:border-0 "
+              width={800}
+              height={1200}
+              className=" 0.5s my-auto max-h-[90vh] rounded-3xl object-contain object-center pt-4  shadow-xl shadow-primary-500 transition-all  hover:shadow-xl hover:shadow-primary-500 md:shadow-none"
             />
           </div>
         </div>

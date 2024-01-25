@@ -10,10 +10,10 @@ const FirstN = async () => {
   console.log("userId" + userId);
   const userData = await User.findById(userId);
   console.log(userData);
-  // const firstName = userData.firstName;
+  const firstName = userData.firstName;
   return (
-    <h1 className="h1-bold">
-      Hola <span className="colorChange2">g</span>,
+    <h1 className="h1-bold inline">
+      Hola <span className="colorChange2">{firstName}</span>,
     </h1>
   );
 };

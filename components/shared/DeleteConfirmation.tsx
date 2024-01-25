@@ -24,7 +24,7 @@ export const DeleteConfirmation = ({ eventId }: { eventId: string }) => {
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger>
+      <AlertDialogTrigger className="p-3 hover:rounded-b-xl hover:bg-slate-100">
         <Image
           src="/assets/icons/delete.svg"
           alt="edit"
