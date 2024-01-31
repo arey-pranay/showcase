@@ -4,7 +4,7 @@ export type CreateUserParams = {
   firstName: string;
   lastName: string;
   username: string;
-  // email: string;
+  // email: string | null;
   photo: string;
 };
 

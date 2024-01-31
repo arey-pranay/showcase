@@ -71,9 +71,9 @@ export default async function Home({ searchParams }: SearchParamProps) {
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="mr-10 flex flex-col justify-center gap-8">
             <div>
-              <SignedIn>
+              {/* <SignedIn>
                 <FirstN />
-              </SignedIn>{" "}
+              </SignedIn>{" "} */}
               <h1 className="h1-bold inline">
                 Welcome to Fire-Work by{" "}
                 <span className="colorChange">Pranay Parikh </span>.{" "}
