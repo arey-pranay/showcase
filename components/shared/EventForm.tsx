@@ -58,6 +58,49 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
     }
     if (type === "Create") {
       try {
+        if (!userId) {
+          // alert("bruh no user !");
+          form.reset();
+          router.push(`/profile`);
+          // return (
+          //   <div className="flex h-full w-full items-center justify-center">
+          //     {" "}
+          //     <div className="flex flex-col items-center justify-center py-4 ">
+          //       <h1>
+          //         Contact{" "}
+          //         <a
+          //           href="https://www.linkedin.com/in/pranay-parikh-530331218/"
+          //           className="text-primary-500 hover:underline hover:underline-offset-1"
+          //           target="_blank"
+          //         >
+          //           Pranay
+          //         </a>{" "}
+          //         if your info is not visible here, He might be moving things
+          //         around
+          //       </h1>
+          //       <br />
+          //       <Image
+          //         src="/assets/images/oneWork.gif"
+          //         width={300}
+          //         height={300}
+          //         alt=""
+          //         className=" border-4 border-primary-500 p-1"
+          //       />
+          //       <br />
+          //       <p>
+          //         It&apos;s supposed to look like{" "}
+          //         <a
+          //           className="text-primary-500 underline underline-offset-4 transition-all duration-200 hover:underline-offset-2"
+          //           href="https://www.linkedin.com/in/pranay-parikh-530331218/"
+          //           target="_blank"
+          //         >
+          //           this
+          //         </a>
+          //       </p>
+          //     </div>
+          //   </div>
+          // );
+        }
         const newEvent = await createEvent({
           event: { ...values, imageUrl: uploadedImageUrl },
           userId,

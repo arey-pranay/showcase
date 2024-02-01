@@ -6,21 +6,67 @@ import { IOrder } from "@/lib/database/models/order.model";
 import User from "@/lib/database/models/user.model";
 import { SearchParamProps } from "@/types";
 import { auth } from "@clerk/nextjs";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const ProfilePage = async ({ searchParams }: SearchParamProps) => {
   const { sessionClaims } = auth();
-  console.log(sessionClaims);
+  // console.log(sessionClaims);
 
   const userId = sessionClaims?.userId as string;
+  if (!userId) {
+    return (
+      <div className="flex h-full w-full items-center justify-center">
+        {" "}
+        <div className="flex flex-col items-center justify-center py-4 ">
+          <div className="flex flex-col text-center md:flex-row">
+            {" "}
+            <h1>
+              Contact{" "}
+              <a
+                href="https://www.linkedin.com/in/pranay-parikh-530331218/"
+                className="text-primary-500 hover:underline hover:underline-offset-1"
+                target="_blank"
+              >
+                Pranay
+              </a>{" "}
+              if your info/project is not visible{" "}
+            </h1>
+            <p className="hidden md:block">,&nbsp;</p>
+            <p>He might be moving things around</p>
+          </div>
+
+          <br />
+          <Image
+            src="/assets/images/oneWork.gif"
+            width={300}
+            height={300}
+            alt=""
+            className=" border-4 border-primary-500 p-1 transition-all duration-200 hover:p-2"
+          />
+          <br />
+          <p>
+            It&apos;s supposed to look like{" "}
+            <a
+              className="text-primary-500 underline underline-offset-4 transition-all duration-200 hover:underline-offset-2"
+              href="https://www.linkedin.com/in/pranay-parikh-530331218/"
+              target="_blank"
+            >
+              this
+            </a>
+          </p>
+        </div>
+      </div>
+    );
+  }
   const userData = await User.findById(userId);
   const firstName = userData.firstName;
   const ordersPage = Number(searchParams?.ordersPage) || 1;
   const eventsPage = Number(searchParams?.eventsPage) || 1;
   const orders = await getOrdersByUser({ userId, page: ordersPage });
   const orderedEvents = orders?.data.map((order: IOrder) => order.event || []);
-  console.log(orderedEvents);
+  // console.log(orderedEvents);
   const organizedEvents = await getEventsByUser({ userId, page: eventsPage });
   return (
     <>
