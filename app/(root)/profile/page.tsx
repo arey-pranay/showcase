@@ -50,7 +50,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
             It&apos;s supposed to look like{" "}
             <a
               className="text-primary-500 underline underline-offset-4 transition-all duration-200 hover:underline-offset-2"
-              href="https://www.linkedin.com/in/pranay-parikh-530331218/"
+              href="https://www.linkedin.com/posts/pranay-parikh-530331218_firework-just-like-the-website-activity-7159058417695760385-sZIb?utm_source=share&utm_medium=member_desktop"
               target="_blank"
             >
               this
